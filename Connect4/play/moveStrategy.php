@@ -33,9 +33,9 @@ function moveStrategy()
         return;
     }
 
-    /* This section decides how to choose a move from chosen strategy and handles error of unknown one */
 
 
+    //picking move based on strategy and handling unknown strat error
     if ($strategy == "Random") {
         $move = random();
         place_at($move, 2);
@@ -47,10 +47,10 @@ function moveStrategy()
         return;
     }
 
-#points of strategy's winning line if it exists
+    //checking for connect 4
     $points2 = checkWin(4, $height[$move] + 1, $move);
 
-#game play information in json displayed
+    //displays game info
     echo json_encode(
         array('response' => true,
             'ack_move' => array('slot' => (int)$given_move,
